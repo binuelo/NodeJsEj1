@@ -1,25 +1,23 @@
 const { DataTypes } = require('sequelize');
 const { db } = require('../utils/database');
 //define=> define un modelo
-const Repair = db.define('repair', {
+const Registration = db.define('registration', {
   id: {
     primaryKey: true,
     autoIncrement: true,
     allowNull: false,
     type: DataTypes.INTEGER,
   },
-  date: {
-    type: DataTypes.STRING,
-    allowNull: false,
+  entranceTime: {
+    type: DataTypes.DATE,
+  },
+  exitTime: {
+    type: DataTypes.DATE,
   },
   status: {
     type: DataTypes.STRING,
-    allowNull: false,
-    defaultValue: 'pending',
-  },
-  userId: {
-    type: DataTypes.INTEGER,
+    defaultValue: 'working',
   },
 });
 
-module.exports = { Repair };
+module.exports = { Registration };

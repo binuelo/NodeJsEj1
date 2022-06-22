@@ -3,18 +3,17 @@ const express = require('express'); //Creamos una instancia exprres
 
 const app = express(); //almacenamos en App
 
-//Routers
-const { usersRouter } = require('./routes/user.route');
-const { repairsRouter } = require('./routes/repair.route');
+//Routersnpm
+const { RegistrationRouter } = require('./routes/registration.route');
 
 // UTILS
 const { db } = require('./utils/database');
+const { User } = require('./models/registration.model');
 
 //permitimos rrecibir JSON a nuestra API
-app.use(express.json()); //mi app va utilizar JSON como tipo de dsto
+app.use(express.json()); //mi app va utilizar JSON como tipo de dato
 //Definir Endpoints con Exprees
-app.use('/api/v1/users', usersRouter); // http://localhost:4000/api/v1/users
-app.use('/api/v1/repairs', repairsRouter);
+app.use('/api/v1/registrations', RegistrationRouter); // http://localhost:4000/api/v1/registrations
 
 //conexion a la BD
 
@@ -29,5 +28,5 @@ db.sync() //{ force: true } es parta volver a recrear la BD (Borra todo des 0)
 const PORT = 4000; //El puerto de acceso
 app.listen(PORT, () => {
   //Pido a mi app exprees que este a la escucha de peticion
-  console.log(`Express app Runnig on port: ${PORT}`);
+  //console.log(`Express app Runnig on port: ${PORT}`);
 });

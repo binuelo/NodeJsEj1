@@ -5,7 +5,7 @@ const db = new Sequelize({
   host: 'localhost',
   username: 'postgres',
   password: 'Cruz4azu1',
-  database: 'repairs',
+  database: 'Employees',
   logging: false, //para que no me imprima el ingreso de la BD en la terminal
 });
 
